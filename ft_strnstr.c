@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/25 16:25:37 by abahaded          #+#    #+#             */
+/*   Updated: 2024/10/25 16:25:37 by abahaded         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int i = 0, j = 0;
+	unsigned int	i;
+	unsigned int	j;
 
+	i = 0;
+	j = 0;
 	if (!little)
-		return (char *)big;
+		return ((char *)big);
 	while (big[i])
 	{
 		while (big[i + j] == little[j])
@@ -17,5 +32,5 @@ char *ft_strnstr(const char *big, const char *little, size_t len)
 		j = 0;
 		i++;
 	}
-	return 0;
+	return (0);
 }
