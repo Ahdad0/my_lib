@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:57:53 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 14:57:56 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/27 13:53:41 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	ft_bzero(void *s, size_t n)
 	p = (unsigned char *)s;
 	while (n > i)
 	{
-		p[i] = '\0';
+		p[i] = 0;
 		i++;
 	}
 }
-int a[] = {3, 4,5}
-ft_bzero(a. 3)

@@ -13,6 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
+static void	add(t_list **head, void *v);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;

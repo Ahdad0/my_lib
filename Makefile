@@ -22,7 +22,7 @@ re: fclean all
 
 fclean: clean
 	@rm -f libft.a
-	@rm -f main
+		@rm -f main
 
 clean:
 	@rm -f *.o
