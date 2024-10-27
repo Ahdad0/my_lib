@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:03:51 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 16:03:52 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/27 21:34:42 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	p = (unsigned char *)s;
 	while (i < n)
 	{
-		if (p[i] == c)
+		if (p[i] == (unsigned char)c)
 			return (&p[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
