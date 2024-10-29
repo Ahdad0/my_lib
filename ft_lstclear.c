@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:58:32 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 15:58:34 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:39:00 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		del(void *content);
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 
-static void	add(t_list **head, void *v)
+/*static void	add(t_list **head, void *v)
 {
 	t_list	*new;
 
@@ -23,7 +23,7 @@ static void	add(t_list **head, void *v)
 	new->content = v;
 	new->next = *head;
 	*head = new;
-}
+}*/
 
 void	del(void *content)
 {
@@ -38,12 +38,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		new = *lst;
 		*lst = (*lst)->next;
+		del(new->content);
 		free(new);
 	}
 	*lst = NULL;
 }
 
-int	main(void)
+/*int	main(void)
 {
 	t_list	*head;
 
@@ -56,4 +57,4 @@ int	main(void)
 	{
 		head = head->next;
 	}
-}
+}*/

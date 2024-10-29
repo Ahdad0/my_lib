@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:01:20 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 16:01:21 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:39:17 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-static void	add(t_list **head, void *v)
+/*static void	add(t_list **head, void *v)
 {
 	t_list	*new;
 
@@ -30,7 +30,7 @@ static void	add(t_list **head, void *v)
 	new->content = v;
 	new->next = *head;
 	*head = new;
-}
+}*/
 
 void	f(void *content)
 {

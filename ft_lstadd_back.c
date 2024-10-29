@@ -6,14 +6,14 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:57:54 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 15:58:02 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:35:43 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static void	add(t_list **head, void *v)
+/*static void	add(t_list **head, void *v)
 {
 	t_list	*new;
 
@@ -21,7 +21,7 @@ static void	add(t_list **head, void *v)
 	new->content = v;
 	new->next = *head;
 	*head = new;
-}
+}*/
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

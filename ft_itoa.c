@@ -6,17 +6,19 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:26:13 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/27 21:08:12 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 21:52:00 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_l(int n)
+static int	ft_l(int nb)
 {
-	int	i;
+	int		i;
+	long	n;
 
 	i = 0;
+	n = nb;
 	if (n < 0)
 		n = -n;
 	if (n == 0)
@@ -29,14 +31,16 @@ static int	ft_l(int n)
 	return (i);
 }
 
-static char	*ft_negative(char *temp, int n)
+static char	*ft_negative(char *temp, int nb)
 {
 	char	*p;
 	int		i;
 	int		j;
+	long	n;
 
 	j = 0;
 	i = 0;
+	n = nb;
 	p = malloc(ft_l(n) + 2);
 	if (!p)
 		return (NULL);
@@ -90,11 +94,14 @@ char	*ft_itoa(int n)
 		return (ft_negative(temp, n));
 	else if (n != 0)
 		return (ft_positive(temp, n));
+	ptr = malloc(2);
+	if (!ptr)
+	{
+		 free(ptr);
+		 return (NULL);
+	}
 	if (n == 0)
 	{
-		ptr = malloc(2);
-		if (!ptr)
-			return (NULL);
 		ptr[0] = '0';
 		ptr[1] = '\0';
 	}

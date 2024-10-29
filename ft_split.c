@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:18:09 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 16:18:10 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:33:23 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,30 @@ char	**ft_split(char const *s, char c)
 	o = 0;
 	start = 0;
 	n = malloc((count(s, c) + 1) * (sizeof(char *)));
+	if (!n)
+	{
+		free(n);
+		return (NULL);
+	}
 	while (s[i])
 	{
 		if (s[i] == c)
 		{
 			n[o++] = ft_substr(s, start, i - start);
+			if (!n)
+			{
+				free_p(n, o);
+				return (NULL);
+			}
 			start = i + 1;
 		}
 		i++;
 	}
-	n[o++] = ft_substr(s, start, i - start);
-	n[o] = '\0';
+	n[o] = ft_substr(s, start, i - start);
+	if (!n)
+	{
+		free_p(n, o);
+		return (NULL);
+	}
 	return (n);
 }

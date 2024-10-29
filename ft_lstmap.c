@@ -6,14 +6,18 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:02:54 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 16:02:56 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:48:44 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+
 static void	add(t_list **head, void *v);
+
+void	*f(void *content);
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
@@ -25,8 +29,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		add(&new, f(lst->content));
 		temp = lst;
 		lst = lst->next;
+		del(temp->content);
 		free(temp);
 	}
+	return (new);
 }
 
 static void	add(t_list **head, void *v)
@@ -46,7 +52,7 @@ void	del(void *content)
 
 void	*f(void *content)
 {
-	return ("a");
+	return (content);
 }
 /*int	main(void)
 {
