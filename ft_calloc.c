@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:59:38 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/27 15:54:59 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:57:17 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	p = malloc(nmemb * size);
 	if (!p)
 		return (0);
-	ft_bzero(p, sizeof(nmemb * size));
+	ft_bzero(p, nmemb * size);
 	return (p);
 }
