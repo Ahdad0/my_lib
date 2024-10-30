@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:18:09 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/28 20:33:23 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:39:20 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,19 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	}
 	return (n);
+}
+int main()
+{
+	char **s = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	int i = 0, j = 0;
+	while (s[i])
+	{
+		while (s[j])
+		{
+			printf("%c", s[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
