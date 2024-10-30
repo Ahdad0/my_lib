@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:26:13 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/29 13:55:16 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/30 10:20:44 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,7 @@ char	*ft_itoa(int n)
 		return (ft_positive(temp, n));
 	ptr = malloc(2);
 	if (!ptr)
-	{
-		 free(ptr);
-		 return (NULL);
-	}
+		return (NULL);
 	if (n == 0)
 	{
 		ptr[0] = '0';
