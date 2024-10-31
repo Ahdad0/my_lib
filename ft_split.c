@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:25:08 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/31 10:49:00 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:04:52 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@ static int	count(char const *s, char c)
 {
 	int	i;
 	int	cou;
+	int	num;
 
+	num = 0;
 	i = 0;
 	cou = 0;
 	while (s[i])
 	{
 		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
 			cou++;
+		if (s[i] == c)
+			num++;
 		i++;
 	}
+	if (!num)
+		return (0);
 	return (cou);
 }
 
@@ -63,14 +69,19 @@ static char	*ft_str(char *s, char c, int *j)
 	int		i;
 	int		o;
 	int		len;
+	int		ll;
 
 	o = 0;
 	i = *j;
 	while (s[i] == c)
 		i++;
-	p = malloc(ft_l(s, c, j) + 1);
+	ll = ft_l(s, c, j);
+	p = malloc(ll + 1);
 	if (!p)
+	{
+		free(p);
 		return (NULL);
+	}
 	len = *j;
 	while (i < len)
 		p[o++] = s[i++];
@@ -99,7 +110,7 @@ char	**ft_split(char const *s, char c)
 		n[i++] = ft_str((char *)s, c, &j);
 		if (!n)
 		{
-			free_p(n, c);
+			free_p(n, i);
 			return (NULL);
 		}
 	}
