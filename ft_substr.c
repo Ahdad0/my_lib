@@ -5,6 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/31 17:06:52 by abahaded          #+#    #+#             */
+/*   Updated: 2024/10/31 17:15:07 by abahaded         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:24:45 by abahaded          #+#    #+#             */
 /*   Updated: 2024/10/30 11:07:11 by abahaded         ###   ########.fr       */
 /*                                                                            */
@@ -23,6 +35,16 @@ static char	*ft_zero(void)
 	return (p);
 }
 
+static int	strl(char *s, size_t len)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && i < len)
+		i++;
+	return (i);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
@@ -31,7 +53,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	l = 0;
 	if (ft_strlen(s) >= start)
-		l = ft_strlen(s + start);
+		l = strl((char *)s + start, len);
 	if (ft_strlen(s) <= start || l == 0)
 		return (ft_zero());
 	i = 0;
