@@ -29,7 +29,6 @@ re: fclean all
 
 fclean: clean
 	rm -f libft.a
-	rm -f libft_bonus.a
 
 clean:
 	rm -f *.o
