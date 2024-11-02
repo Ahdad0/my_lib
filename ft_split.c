@@ -5,8 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/02 18:09:53 by abahaded          #+#    #+#             */
+/*   Updated: 2024/11/02 18:13:44 by abahaded         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:25:08 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/31 18:04:52 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/11/02 18:03:07 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +29,15 @@ static int	count(char const *s, char c)
 {
 	int	i;
 	int	cou;
-	int	num;
 
-	num = 0;
 	i = 0;
 	cou = 0;
 	while (s[i])
 	{
 		if ((s[i] != c && s[i + 1] == c) || (s[i] != c && s[i + 1] == '\0'))
 			cou++;
-		if (s[i] == c)
-			num++;
 		i++;
 	}
-	if (!num)
-		return (0);
 	return (cou);
 }
 
@@ -43,6 +49,7 @@ static void	free_p(char **s, unsigned int o)
 	while (i <= o)
 	{
 		free(s[i]);
+		i++;
 	}
 	free(s);
 }
@@ -78,10 +85,7 @@ static char	*ft_str(char *s, char c, int *j)
 	ll = ft_l(s, c, j);
 	p = malloc(ll + 1);
 	if (!p)
-	{
-		free(p);
 		return (NULL);
-	}
 	len = *j;
 	while (i < len)
 		p[o++] = s[i++];
@@ -108,12 +112,12 @@ char	**ft_split(char const *s, char c)
 	while (num--)
 	{
 		n[i++] = ft_str((char *)s, c, &j);
-		if (!n)
+		if (!n[i - 1])
 		{
-			free_p(n, i);
+			free_p(n, i - 1);
 			return (NULL);
 		}
 	}
-	n[i] = (char *) '\0';
+	n[i] = NULL;
 	return (n);
 }

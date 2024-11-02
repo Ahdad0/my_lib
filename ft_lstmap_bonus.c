@@ -6,74 +6,37 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:02:54 by abahaded          #+#    #+#             */
-/*   Updated: 2024/11/01 12:07:02 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:14:32 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*static void	add(t_list **head, void *v, void (*del)(void *))
-{
-	t_list	*new;
-	t_list	*temp;
-
-	temp = *head;
-	new = malloc(sizeof(t_list));
-	if (!new)
-	{
-		ft_lstclear(head, del);
-		return;
-	}
-	if (*head == NULL)
-	{
-		new->next = NULL;
-		*head = new;
-	}
-	else
-	{
-		while (temp->next)
-			temp = temp->next;
-		new->next = NULL;
-		temp->next = new;
-	}
-	new->content = v;
-}*/
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*head;
-	t_list *new;
+	t_list	*new_l;
+	t_list	*new_n;
+	t_list	*node;
 
-	new = NULL;
-	head = NULL;
-	if (lst)
-	{
-		new = malloc(sizeof(t_list));
-		if (!new)
-		{
-			free(new);
-			return (NULL);
-		}
-		lst->content = f(lst->content);
-		new->content = lst->content;
-		new->next = NULL;
-		head = new;
-		if (lst->next)
-			lst = lst->next;
-	}
+	new_l = NULL;
+	if (!lst || !del || !f)
+		return (NULL);
 	while (lst)
 	{
-		new = malloc(sizeof(t_list));
-		if (!new)
+		new_n = malloc(sizeof(t_list));
+		if (!new_n)
 		{
-			free(new);
-			ft_lstclear(&head, del);
+			ft_lstclear(&new_l, del);
 			return (NULL);
 		}
-		lst->content = f(lst->content);
-		new->content = lst->content;
-		ft_lstadd_back(&head, new);
+		new_n->content = f(lst->content);
+		new_n->next = NULL;
+		if (!new_l)
+			new_l = new_n;
+		else
+			node->next = new_n;
 		lst = lst->next;
+		node = new_n;
 	}
-	return (head);
+	return (new_l);
 }
