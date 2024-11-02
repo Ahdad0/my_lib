@@ -6,7 +6,7 @@
 /*   By: abahaded <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:23:14 by abahaded          #+#    #+#             */
-/*   Updated: 2024/10/25 16:23:28 by abahaded         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:33:11 by abahaded         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;
