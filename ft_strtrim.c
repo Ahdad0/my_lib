@@ -70,6 +70,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*p;
 	size_t	sub;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	start = ft_check_first((char *)s1, (char *)set);
 	end = ft_check_last((char *)s1, (char *)set);

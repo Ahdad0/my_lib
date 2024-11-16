@@ -62,8 +62,10 @@ size_t	ft_strlcat(char *dest, char const *src, size_t size)
 	size_t	sub;
 	size_t	i;
 
-	i = 0;
 	len_src = ft_strlen(src);
+	if (size == 0)
+		return (len_src);
+	i = 0;
 	len_dest = ft_strlen(dest);
 	max = len_dest + len_src + 1;
 	sub = size - len_dest - 1;

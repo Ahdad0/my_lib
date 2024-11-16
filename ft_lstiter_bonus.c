@@ -15,39 +15,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!lst || !f)
+		return ;
 	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
 	}
 }
-
-/*static void	add(t_list **head, void *v)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	new->content = v;
-	new->next = *head;
-	*head = new;
-}*/
-
-void	f(void *content)
-{
-	content = "ff";
-}
-/*int	main(void)
-{
-	t_list	*head;
-
-	head = NULL;
-	add(&head, "two");
-	add(&head, "one");
-	add(&head, "zero");
-	ft_lstiter(head, f);
-	while (head)
-	{
-		printf("%s\n", (char *)head->content);
-		head = head->next;
-	}
-}*/

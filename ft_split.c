@@ -100,6 +100,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	char	**n;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
 	num = count(s, c);

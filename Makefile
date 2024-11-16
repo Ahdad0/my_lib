@@ -28,7 +28,9 @@ $(NAME): $(OBJ)
 re: fclean all
 
 fclean: clean
-	rm -f libft.a
+	rm -f $(NAME)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
+
+.SECONDARY:
