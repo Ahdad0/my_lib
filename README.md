@@ -64,4 +64,4 @@ The project is divided into three main parts:
 ### Installation
 1. Clone the repository:
 ```bash
-git clone [your-repo-link]
+git clone https://github.com/Ahdad0/my_lib.git
